@@ -1,0 +1,15 @@
+# The application must contain an analysis_options.yaml with the following:
+
+analyzer:
+  plugins:
+    - custom_lint
+
+# The application also needs to add custom_lint and our package(s) as dev dependency in their application:
+
+# name: example_app
+# environment:
+#   sdk: ">=3.0.0 <4.0.0"
+
+# dev_dependencies:
+#   custom_lint:
+#   my_custom_lint_package:
