@@ -20,9 +20,7 @@ And then add the following packages to the `pubspec.yaml`:
 dev_dependencies:
   custom_lint:
   code_collab_lints:
-    git:
-      url: git@github.com:CodeCollabHub/code_collab_lints.git
-      ref: main
+    git: 'https://github.com/CodeCollabHub/code_collab_lints.git'
 ```
 
 ## Usage
