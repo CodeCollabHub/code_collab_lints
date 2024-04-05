@@ -29,8 +29,8 @@ class AvoidUndisposedListenableFields extends DartLintRule {
   /// Metadata about the warning that will show-up in the IDE.
   /// This is used for `// ignore: code` and enabling/disabling the lint
   static const _code = LintCode(
-    name: 'avoid_undisposed_listenable_fields',
-    problemMessage: r'Avoid declaring listenable fields in StatefulWidgets without disposing them.',
+    name: 'avoid_undisposed_listenable_controllers',
+    problemMessage: r'Avoid declaring listenable controllers in StatefulWidgets without disposing them.',
   );
 
   @override
@@ -77,6 +77,20 @@ class AvoidUndisposedListenableFields extends DartLintRule {
             // }
 
             if (fieldType == null || !_listenableChecker.isAssignableFromType(fieldType)) {
+              continue;
+            }
+
+            // print('fieldElement: $fieldElement');
+
+            // Look up the class of the field
+            var classElement = fieldType.element as ClassElement;
+
+            // Look up the `dispose` method in the class and its superclasses
+            var isDisposable = classElement.lookUpMethod('dispose', classElement.library) != null;
+
+            // print('isDisposable: $isDisposable');
+
+            if (!isDisposable) {
               continue;
             }
 
