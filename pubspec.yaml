@@ -1,7 +1,7 @@
 name: code_collab_lints
 description: A starting point for Dart libraries or applications.
-version: 1.0.0
 repository: https://github.com/CodeCollabHub/code_collab_lints
+version: 1.0.1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
